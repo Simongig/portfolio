@@ -13,7 +13,40 @@ function scrollFunction(): void {
         mybutton.style.display = "none";
     }
 }
+
 if(searchParams.get("pandorasBox") == "true") {
     let linktext:HTMLAnchorElement = document.querySelector("#btt-button a")! as HTMLAnchorElement;
     linktext.innerText = "🖕"
 }
+
+function addNavListener() {
+    let navIcon:HTMLAnchorElement = document.getElementById("nav-icon") as HTMLAnchorElement;
+    let navElements:HTMLDivElement = document.querySelector(".nav-elements") as HTMLDivElement;
+    let nav:HTMLElement = document.querySelector("nav") as HTMLElement
+    let state:boolean = false;
+    console.log("test")
+
+    function changeState(event:Event):void {
+        if(state) {
+            nav.classList.remove("expand")
+            navElements.classList.remove("show")
+        } else {
+            nav.classList.add("expand")
+            navElements.classList.add("show")
+        }
+        state = !state;
+        console.log(state)
+
+    }
+
+    navIcon.addEventListener("click", changeState)
+}
+
+
+
+function main():Number {
+    addNavListener();
+    return 1
+}
+
+main();
