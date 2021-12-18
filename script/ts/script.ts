@@ -1,6 +1,6 @@
 
 let mybutton: HTMLButtonElement = document.querySelector("#btt-button")! as HTMLButtonElement;
-let searchParams:URLSearchParams = new URLSearchParams(window.location.search);
+let searchParams: URLSearchParams = new URLSearchParams(window.location.search);
 
 window.onscroll = function () {
     scrollFunction()
@@ -14,20 +14,20 @@ function scrollFunction(): void {
     }
 }
 
-if(searchParams.get("pandorasBox") == "true") {
-    let linktext:HTMLAnchorElement = document.querySelector("#btt-button a")! as HTMLAnchorElement;
+if (searchParams.get("pandorasBox") == "true") {
+    let linktext: HTMLAnchorElement = document.querySelector("#btt-button a")! as HTMLAnchorElement;
     linktext.innerText = "🖕"
 }
 
 function addNavListener() {
-    let navIcon:HTMLAnchorElement = document.getElementById("nav-icon") as HTMLAnchorElement;
-    let navElements:HTMLDivElement = document.querySelector(".nav-elements") as HTMLDivElement;
-    let nav:HTMLElement = document.querySelector("nav") as HTMLElement
-    let state:boolean = false;
-    console.log("test")
+    let navIcon: HTMLAnchorElement = document.getElementById("nav-icon") as HTMLAnchorElement;
+    let navElements: HTMLDivElement = document.querySelector(".nav-elements") as HTMLDivElement;
+    let allNavElements: NodeList = document.querySelectorAll(".nav-element") as NodeList
+    let nav: HTMLElement = document.querySelector("nav") as HTMLElement
+    let state: boolean = false;
 
-    function changeState(event:Event):void {
-        if(state) {
+    function changeState(event: Event): void {
+        if (state) {
             nav.classList.remove("expand")
             navElements.classList.remove("show")
         } else {
@@ -40,11 +40,14 @@ function addNavListener() {
     }
 
     navIcon.addEventListener("click", changeState)
+    allNavElements.forEach(item => {
+        item.addEventListener('click', changeState)
+    })
 }
 
 
 
-function main():Number {
+function main(): Number {
     addNavListener();
     return 1
 }

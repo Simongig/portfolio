@@ -19,9 +19,9 @@ if (searchParams.get("pandorasBox") == "true") {
 function addNavListener() {
     var navIcon = document.getElementById("nav-icon");
     var navElements = document.querySelector(".nav-elements");
+    var allNavElements = document.querySelectorAll(".nav-element");
     var nav = document.querySelector("nav");
     var state = false;
-    console.log("test");
     function changeState(event) {
         if (state) {
             nav.classList.remove("expand");
@@ -35,6 +35,9 @@ function addNavListener() {
         console.log(state);
     }
     navIcon.addEventListener("click", changeState);
+    allNavElements.forEach(function (item) {
+        item.addEventListener('click', changeState);
+    });
 }
 function main() {
     addNavListener();
