@@ -1,9 +1,15 @@
 body {
     margin: auto;
-    max-width: 33vw;
-    width: 1200px;
+    max-width: 1200px;
+    padding: 3rem 2rem;
 }
 
-h1 {
-    margin-top: 3rem;
+footer {
+    margin-top: 3rem; 
+    font-size: 0.8em; 
+    color: gray;
+}
+
+.footer-content {
+    text-align: center;
 }
